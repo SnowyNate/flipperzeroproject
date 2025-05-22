@@ -1,1 +1,10 @@
-REM
+REM_BLOCK DOCUMENTATION
+        USAGE:
+            - Types into Notepad "Hello world" or some other text
+            - Opens a rickroll after some delay
+            - Displays custom error messages
+            - Opens browser, navigates to FakeBSOD site, and activates and fullscreens the site
+    
+        TARGETS:
+            Windows Device
+END_REM
