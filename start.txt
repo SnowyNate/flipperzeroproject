@@ -7,4 +7,10 @@ REM_BLOCK DOCUMENTATION
     
         TARGETS:
             Windows Device
+
 END_REM
+
+WINDOWS r
+STRING notepad.exe
+DELAY 100
+STRING Hello world!
