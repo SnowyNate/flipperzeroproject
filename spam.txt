@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {1..20}; do
+for i in {1..200}; do
   (
     X=$((RANDOM % 1000))
     Y=$((RANDOM % 600))

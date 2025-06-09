@@ -19,5 +19,7 @@ DELAY 12000
 CTRL c
 DELAY 1000
 STRING cd
+ENTER
 DELAY 300
 STRING rm flipperzeroproject/ -f -r
+ENTER
