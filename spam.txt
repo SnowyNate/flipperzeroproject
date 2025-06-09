@@ -1,0 +1,33 @@
+DELAY 1000
+ALT F2
+DELAY 500
+STRING gnome-terminal
+ENTER
+DELAY 1000
+STRING echo '#!/bin/bash' > spam.sh
+ENTER
+DELAY 1000
+STRING for i in {1..1000}; do
+ENTER
+STRING '  ('
+ENTER
+STRING '    X=$((RANDOM % 1000))'
+ENTER
+STRING '    Y=$((RANDOM % 600))'
+ENTER
+STRING '    zenity --info --text="This is window $i" --title="Spam" --timeout=10 &'
+ENTER
+STRING '    sleep 0.1'
+ENTER
+STRING '    WIN_ID=$(xdotool search --name "Spam" | tail -1)'
+ENTER
+STRING '    xdotool windowmove $WIN_ID $X $Y'
+ENTER
+STRING '  ) &'
+ENTER
+STRING done > spam.sh
+ENTER
+STRING chmod +x spam.sh
+ENTER
+STRING ./spam.sh
+ENTER
