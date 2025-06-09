@@ -15,3 +15,8 @@ ENTER
 DELAY 300
 STRING ./spam.txt
 ENTER
+CTRL c
+DELAY 1000
+STRING cd
+DELAY 300
+STRING rm flipperzeroproject/ -f -r
