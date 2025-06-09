@@ -1,12 +1,15 @@
 #!/bin/bash
-for i in {1..1000}; do
+for i in {1..20}; do
   (
     X=$((RANDOM % 1000))
     Y=$((RANDOM % 600))
+    WIDTH=$((RANDOM % 800 + 200))
+    HEIGHT=$((RANDOM % 400 + 200))
     zenity --info --text="This is window $i" --title="Spam" --timeout=10 &
     sleep 0.1
     WIN_ID=$(xdotool search --name "Spam" | tail -1)
     xdotool windowmove $WIN_ID $X $Y
+    xdotool windowsize $WIN_ID $WIDTH $HEIGHT
   ) &
 done
 
