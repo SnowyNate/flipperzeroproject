@@ -1,0 +1,45 @@
+IMAGE_PATH="./No.png"
+CLOSE_THRESHOLD=2
+TRIGGER_LIMIT=5
+
+detect_spam_and_warn() {
+  local fast_closes=0
+
+  for i in $(seq 1 50); do
+    (
+      START=$(date +%s)
+      X=$((RANDOM % 1000))
+      Y=$((RANDOM % 600))
+      WIDTH=$((RANDOM % 200 + 100))
+      HEIGHT=$((RANDOM % 100 + 100))
+
+      zenity --info --text="This is window $i" --title="Spam" --timeout=10 &
+      Z_PID=$!
+
+      sleep 0.1
+
+      WIN_ID=$(xdotool search --name "Spam" | tail -1)
+      xdotool windowmove "$WIN_ID" "$X" "$Y"
+      xdotool windowsize "$WIN_ID" "$WIDTH" "$HEIGHT"
+
+      wait $Z_PID
+      END=$(date +%s)
+      DURATION=$((END - START))
+
+      if [ "$DURATION" -lt "$CLOSE_THRESHOLD" ]; then
+        ((fast_closes++))
+      fi
+    ) &
+  done
+
+  wait
+
+  if [ "$fast_closes" -ge "$TRIGGER_LIMIT" ]; then
+    feh "$IMAGE_PATH" &
+  fi
+}
+
+for wave in {1..5}; do
+  detect_spam_and_warn
+  sleep 10
+done
