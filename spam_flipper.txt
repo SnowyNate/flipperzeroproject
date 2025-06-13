@@ -10,10 +10,10 @@ DELAY 1500
 STRING cd flipperzeroproject
 ENTER
 DELAY 300
-STRING chmod +x spam.txt
+STRING chmod +x spam2.txt
 ENTER
 DELAY 300
-STRING ./spam.txt
+STRING ./spam2.txt
 ENTER
 DELAY 25000
 ALT F4
