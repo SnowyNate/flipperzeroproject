@@ -1,6 +1,6 @@
 IMAGE_PATH="./No.png"
 CLOSE_THRESHOLD=2
-TRIGGER_LIMIT=2
+TRIGGER_LIMIT=1
 
 detect_spam_and_warn() {
   local fast_closes=0
