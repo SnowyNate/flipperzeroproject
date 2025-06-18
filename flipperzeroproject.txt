@@ -1,3 +1,5 @@
+REM This was our initial test in order to see if we could access the powershell through the flipper
+
 DELAY 200
 WINDOWS r
 DELAY 200

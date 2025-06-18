@@ -1,4 +1,5 @@
 #!/bin/bash
+# So this is the initial script we had
 for i in {1..200}; do
   (
     X=$((RANDOM % 1000))

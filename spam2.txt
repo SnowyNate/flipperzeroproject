@@ -1,8 +1,11 @@
+# Final script, that not only does the same thing as spam.txt, but also repeats it about 5 times, could be set to whatever you want. Also getting a punish wave to people trying to close all the tabs
+
 INITIAL_WAVE_COUNT=50
 PUNISH_WAVE_COUNT=30
 CLOSE_THRESHOLD=2
 TRIGGER_LIMIT=5
 
+# This part was heavily inspired from Nate's original spam.txt
 detect_spam_and_warn() {
   local fast_closes=0
 
@@ -35,6 +38,7 @@ detect_spam_and_warn() {
 
   wait
 
+# This part attempts to punish the user for trying to close it quickly, but I, Alex, am still working on trying to get it to work
   if [ "$fast_closes" -ge "$TRIGGER_LIMIT" ]; then
       for j in $(seq 1 "$PUNISH_WAVE_COUNT"); do
             (
@@ -61,6 +65,7 @@ detect_spam_and_warn() {
     fi      
 }   
 
+# This repeats the function 5 times
 for wave in {1..5}; do
   detect_spam_and_warn
   sleep 10
