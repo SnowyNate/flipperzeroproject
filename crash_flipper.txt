@@ -1,3 +1,6 @@
+REM Author: Nate
+REM Target OS: Windows 11
+REM Script for the Flipper Zero to load and run crash.txt, then delete the cloned Github repository's directory and its contents
 DELAY 1000
 ALT F2
 DELAY 500

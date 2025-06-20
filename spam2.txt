@@ -1,8 +1,13 @@
+# Author: Alex
+# Target OS: Linux Mint
+# Second finalized iteration of our spam script, floods the target with a variable number of spam notifications instantaneously, clears the notifications, then -repeats a variable number of times
+# If the user attempts to close the spam notifications, a punish wave of spam notifications is created
 INITIAL_WAVE_COUNT=50
 PUNISH_WAVE_COUNT=30
 CLOSE_THRESHOLD=2
 TRIGGER_LIMIT=1
 
+# The code below has been heavily inspired from Nate's original spam.txt
 detect_spam_and_warn() {
   local fast_closes=0
 
@@ -35,6 +40,7 @@ detect_spam_and_warn() {
 
   wait
 
+# The code below attempts to punish the user for trying to close notifications quickly, but this is still a work in progress
   if [ "$fast_closes" -ge "$TRIGGER_LIMIT" ]; then
       for j in $(seq 1 "$PUNISH_WAVE_COUNT"); do
             (
@@ -61,6 +67,8 @@ detect_spam_and_warn() {
     fi      
 }   
 
+# Repeats the script 5 times
+# Alter the end value of 5 in {1..5} to change the number of times this script repeats
 for wave in {1..5}; do
   detect_spam_and_warn
   sleep 10
